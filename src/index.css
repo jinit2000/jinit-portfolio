@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global HTML & body defaults */
+html,
+body {
+  @apply bg-soft text-slate-900 font-sans;
+  scroll-behavior: smooth;
+}
+
+/* Updated section container — adds horizontal space */
+.section {
+  @apply max-w-6xl mx-auto px-8 lg:px-10;
+}
+
+/* Add vertical spacing to ALL sections */
+section {
+  @apply py-24 md:py-28;
+}
+
+/* Optional: Improve paragraph readability */
+p {
+  @apply leading-relaxed;
+}
+
+/* Optional: Smooth hover for all buttons, cards, etc. */
+button, a {
+  @apply transition-all;
+}
