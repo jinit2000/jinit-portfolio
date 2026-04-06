@@ -145,7 +145,7 @@ const HeroSection: React.FC = () => {
           Contact Me
         </button>
 
-        {/* ⭐ NEW RESUME BUTTON ⭐ */}
+        
         <button
           onClick={() =>
             window.open(
@@ -183,14 +183,16 @@ const HeroSection: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Right side card */}
+      
       <motion.div
         className="flex-1 flex justify-center"
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, delay: 0.1 }}
       >
-        <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl bg-white border border-slate-200 shadow-soft flex flex-col items-center justify-center overflow-hidden">
+        <div className="relative w-72 h-auto sm:w-80 rounded-3xl bg-white border border-slate-200 shadow-soft flex flex-col items-center py-10 px-6 overflow-hidden">
+
+          {/* JP circle with animation */}
           <motion.div
             className="w-24 h-24 rounded-full bg-slate-900/5 border border-slate-300 flex items-center justify-center text-slate-900 font-heading text-3xl"
             animate={{ y: [-6, 6, -6] }}
@@ -198,34 +200,41 @@ const HeroSection: React.FC = () => {
           >
             JP
           </motion.div>
+
+          {/* Name */}
           <p className="mt-4 font-heading text-lg font-semibold text-slate-900">
             Jinit Patel
           </p>
+
+          {/* Title */}
           <p className="text-xs text-slate-500">
             Software Developer • Full-Stack Engineer
           </p>
-          <div className="mt-4 grid grid-cols-2 gap-2 text-[11px] text-slate-600">
-            <div className="px-3 py-2 rounded-2xl bg-soft border border-slate-200">
-              <p>Master of Engineering</p>
-              <p className="text-[10px] text-slate-500">Carleton University</p>
-            </div>
-            <div className="px-3 py-2 rounded-2xl bg-soft border border-slate-200">
-              <p>3+ Internships</p>
-              <p className="text-[10px] text-slate-500">Python / Web / DS</p>
-            </div>
+
+          {/* Education box */}
+          <div className="mt-6 w-full px-3 py-3 rounded-2xl bg-soft border border-slate-200 text-center">
+            <p className="text-[12px] font-medium text-slate-700">
+              Master’s in Software Engineering
+            </p>
+            <p className="text-[10px] text-slate-500 mt-1">
+              Carleton University · Completed Jan 2026
+            </p>
           </div>
+
         </div>
       </motion.div>
+
     </section>
   );
 };
 
 const AboutSection: React.FC = () => {
   return (
-    <section id={sectionIds.about} className="bg-white py-16">
-      <div className="section grid md:grid-cols-5 gap-10 items-start">
+    <section id={sectionIds.about} className="bg-white py-20">
+      <div className="section max-w-3xl mx-auto">
+        
         <motion.div
-          className="md:col-span-3 space-y-4"
+          className="space-y-5"
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -234,107 +243,93 @@ const AboutSection: React.FC = () => {
           <h2 className="font-heading text-3xl font-bold text-slate-900 mb-2">
             About Me
           </h2>
+
           <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
             I’m a Software Developer with experience in Python, Java, SQL, REST
-            APIs, and full-stack engineering. I’ve developed internal tools, web
-            applications, distributed systems, and machine-learning–based
-            solutions across academic and industry environments.
+            APIs, and full-stack engineering. I’ve developed internal tools,
+            web applications, distributed systems, and machine-learning–based
+            solutions across academic and industry environments. I’ve also worked 
+            as a Teaching Assistant, helping students understand programming 
+            fundamentals, debugging, and software best practices.
           </p>
+
           <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-            I enjoy designing clean architectures, writing maintainable code, and
-            using CI/CD pipelines to ship reliable features. My work includes
-            real-time stock analysis tools, socket-based distributed systems,
-            and a face mask detection system with high accuracy.
+            I enjoy designing clean architectures, writing maintainable code,
+            and using CI/CD pipelines to ship reliable features. My work includes 
+            real-time stock analysis tools, socket-based distributed systems, and 
+            a face mask detection system with high accuracy. I’m comfortable with 
+            Agile teamwork, Git workflows, CI/CD automation, Docker, and cloud-ready 
+            development.
           </p>
+
           <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-            Currently, I’m pursuing a Master of Engineering in Engineering
-            Practice (Software) at Carleton University and focusing on scalable
-            backend services, modern JavaScript frameworks, and cloud-ready
-            solutions.
+            I completed my Master of Engineering in Engineering Practice (Software) 
+            at Carleton University in January 2026 with a GPA of 3.47/4.0. My graduate 
+            work strengthened my foundation in scalable backend services, modern 
+            JavaScript frameworks, and cloud-ready software development.
           </p>
         </motion.div>
 
-        <motion.div
-          className="md:col-span-2 space-y-4"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <h3 className="font-heading text-sm font-semibold text-slate-900 tracking-wide">
-            Snapshot
-          </h3>
-          <ul className="text-sm text-slate-700 space-y-2">
-            <li>• Master’s in Engineering Practice (Software) at Carleton.</li>
-            <li>• Experience as Full-Stack, Python Developer, and TA.</li>
-            <li>• Built ML, web, and distributed system projects.</li>
-            <li>• Comfortable with Agile, Git, CI/CD, Docker, and cloud.</li>
-          </ul>
-        </motion.div>
       </div>
     </section>
   );
 };
 
+
+
 const ExperienceSection: React.FC = () => {
   const jobs = [
-    {
-      title: "Teaching Assistant (Programming Paradigm)",
-      company: "Carleton University, Ottawa",
-      date: "Jan 2025 – May 2025",
-      points: [
-        "Proctored quizzes and evaluated 30+ hours of assignments.",
-        "Assisted 50+ students with debugging, testing strategies, and Git.",
-        "Explained complex programming concepts during office hours.",
-      ],
-    },
-    {
-      title: "Full Stack Developer",
-      company: "Nivaan Infotech, Visnagar, India",
-      date: "Jan 2023 – Mar 2024",
-      points: [
-        "Developed internal web apps using Python (Flask), HTML, CSS, Bootstrap.",
-        "Improved system architecture patterns for maintainability and performance.",
-      ],
-    },
-    {
-      title: "Python Developer",
-      company: "Nivaan Infotech, Visnagar, India",
-      date: "Jul 2022 – Dec 2022",
-      points: [
-        "Wrote reusable, testable, and scalable code for multiple Python apps.",
-        "Integrated applications with databases and collaborated with UI/UX teams.",
-        "Used Agile, pair programming, continuous integration, and scrum events.",
-      ],
-    },
-    {
-      title: "Web Developer Intern",
-      company: "AppBits Technologies, Ahmedabad, India",
-      date: "Jan 2022 – May 2022",
-      points: [
-        "Developed and optimized web apps using HTML, JavaScript, jQuery, Java, and MySQL.",
-        "Managed 500+ records using Python and MongoDB.",
-      ],
-    },
-    {
-      title: "Android / Flutter Developer Intern",
-      company: "AppBits Technologies, Ahmedabad, India",
-      date: "May 2021 – Jun 2021",
-      points: [
-        "Built cross-platform apps with MVC architecture, APIs, and cloud storage.",
-        "Used Git and GitHub to collaborate with multiple team members.",
-      ],
-    },
-    {
-      title: "Data Science & Business Analytics Intern",
-      company: "The Sparks Foundation",
-      date: "Apr 2021 – May 2021",
-      points: [
-        "Worked on ML classification and clustering with 10K+ data points.",
-        "Applied supervised and unsupervised learning in Python.",
-      ],
-    },
-  ];
+  {
+    title: "Teaching Assistant — COMP 3007 Programming Paradigms",
+    company: "Carleton University · Part-time · Ottawa, ON · Hybrid",
+    date: "Jan 2025 – May 2025",
+    points: [
+      "Supported 30+ graduate students in functional programming (Scheme) and logic programming (Prolog), holding weekly office hours, grading 100+ assignments, and delivering structured, actionable feedback that improved submission quality over the semester.",
+      "Developed supplementary study resources and worked 1-on-1 with students on debugging strategies, Git workflows, and software engineering best practices, contributing to stronger student performance across core assessment criteria.",
+      "Collaborated with the course instructor to streamline grading workflows and maintain consistent evaluation standards, helping deliver a smooth course experience for a class of 30+ over a 5-month term.",
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    company: "Nivaan Infotech Complete IT Solutions · Full-time · Visnagar, India",
+    date: "Jan 2023 – Mar 2024",
+    points: [
+      "Designed and built RESTful APIs using Django REST Framework and PostgreSQL for core product features across 3+ client-facing applications, optimizing ORM queries and indexed lookups to reduce page load times by ~35% and keep response times under 200ms.",
+      "Delivered production-ready full-stack Python/Django applications end-to-end, from database schema design and API development to frontend integration using HTML, CSS, Bootstrap, and JavaScript, across a 15-month client engagement.",
+      "Implemented CI/CD pipelines using Git and automated deployment workflows, reducing manual release effort and cutting deployment time from several hours to under 15 minutes per release cycle.",
+    ],
+  },
+  {
+    title: "Python Developer",
+    company: "Nivaan Infotech Complete IT Solutions · Full-time · Visnagar, India",
+    date: "Jul 2022 – Dec 2022",
+    points: [
+      "Built and tested Python scripts and backend modules to automate 2 recurring internal business workflows, reducing manual processing time by ~40% and improving operational consistency across the team.",
+      "Debugged and resolved software defects across existing Python codebases, improving application stability and reducing reported error frequency within the first 3 months of joining.",
+      "Contributed to code reviews and Git version control workflows across a 4-person development team, maintaining a clean commit history and supporting team-wide coding standards.",
+    ],
+  },
+  {
+    title: "Web Developer Intern",
+    company: "AppBits Technologies · Internship · Ahmedabad, India",
+    date: "Jan 2022 – May 2022",
+    points: [
+      "Developed and optimized web applications using HTML, JavaScript, jQuery, Java, and MySQL, while managing 500+ records with Python and MongoDB in a production data pipeline.",
+      "Collaborated with a cross-functional team to implement responsive UI components and backend integrations, shipping features across multiple client projects within tight sprint timelines.",
+      "Gained hands-on experience with full-stack web architecture, REST integrations, and Agile workflows in a professional software consultancy environment.",
+    ],
+  },
+  {
+    title: "Data Science & Business Analytics Intern",
+    company: "The Sparks Foundation · Internship · Remote",
+    date: "Apr 2021 – May 2021",
+    points: [
+      "Applied supervised and unsupervised machine learning techniques, including classification and clustering, on datasets of 10,000+ data points using Python, scikit-learn, and Pandas.",
+      "Built and evaluated models including decision trees, K-means clustering, and linear regression, documenting findings and presenting results as part of a structured internship programme.",
+      "Strengthened applied data science skills across the full pipeline: data cleaning, feature selection, model training, evaluation metrics, and visualisation using Matplotlib and Seaborn.",
+    ],
+  },
+];
 
   return (
     <section id={sectionIds.experience} className="bg-soft py-16">
@@ -392,68 +387,51 @@ const ExperienceSection: React.FC = () => {
 const ProjectsSection: React.FC = () => {
   const projects = [
     {
-      title: "Stock Analyzer",
-      year: "2025",
-      tech: ["Python", "yFinance", "TA-Lib", "Tkinter"],
-      desc: "Real-time stock analysis tool with technical indicators, pivot-based support/resistance, and BUY/HOLD/SELL scoring.",
+      title: "ML-Powered Stock Analyzer",
+      year: "2024–Present",
+      tech: ["Python", "scikit-learn", "Pandas", "yFinance", "Flask", "Feature Engineering", "Machine Learning"],
+      desc: "Python web app generating explainable BUY/HOLD/SELL probability signals across short-term (~2 weeks) and swing (~3 months) time windows using a full machine learning pipeline built on historical OHLCV data.",
       bullets: [
-        "Processed 250+ trading days of historical data.",
-        "Improved decision clarity by ~40% during back-tests.",
-        "Tkinter GUI with 10+ financial metrics.",
+        "Built v1 as a rule-based scoring engine using 6 technical and fundamental indicators including RSI, 50/200-day SMA, pivot support/resistance, P/E Ratio, EPS, and ROE, producing human-readable BUY/HOLD/SELL recommendations through a Tkinter desktop GUI.",
+        "Rebuilt the system as a full ML pipeline with feature engineering, scikit-learn model training on historical OHLCV data, evaluation on unseen market data, and explainable prediction output showing the top features driving each signal.",
+        "Integrated real-time stock data with yfinance and graceful error handling for missing fundamentals and incomplete API responses, testing end-to-end on AAPL, MSFT, TSLA, NVDA, AMZN, and GOOGL.",
       ],
-      github: "", // fill GitHub link later if you have it
+      githubv1: "https://github.com/jinit2000/stock-analyzer",
+      githubv2: "https://github.com/jinit2000/stock-analyzer-ml-v2"
     },
     {
-      title: "Distributed System with Server-Client Communication",
+      title: "Distributed System — Server-Client Communication",
       year: "2024",
-      tech: ["Python", "Sockets"],
-      desc: "Python-based distributed system with nodes acting as both servers and clients.",
+      tech: ["Python", "Sockets", "Threading", "Distributed Systems", "System Design"],
+      desc: "Python-based distributed system where nodes act as both servers and clients simultaneously, with fault-tolerant communication, real-time monitoring, and automatic recovery mechanisms.",
       bullets: [
-        "Implemented heartbeat monitoring and data loss prevention.",
-        "Designed fault-tolerant mechanisms and real-time connectivity.",
+        "Implemented a multi-node architecture using Python sockets and threading, allowing each node to function as both a server and client for peer-to-peer distributed communication without a central coordinator.",
+        "Built heartbeat monitoring and data-loss prevention mechanisms to detect node failures in real time, automatically trigger reconnection logic, and maintain availability during partial outages.",
+        "Designed and tested fault-tolerant message delivery with sequence tracking and acknowledgement protocols to ensure no data loss during node disconnections or network interruptions.",
       ],
       github: "",
+    },
+    {
+      title: "Django Real-Time Chat Application",
+      year: "2020",
+      tech: ["Django", "Python", "JavaScript", "HTML & CSS", "PostgreSQL", "REST APIs"],
+      desc: "Topic-based chat room web application where users can register, create rooms, and discuss in real time, built end-to-end with Django backend and vanilla JavaScript frontend.",
+      bullets: [
+        "Implemented full user authentication, room-based messaging with topic categorisation, and session management using Django’s built-in auth framework and ORM.",
+        "Built a responsive frontend using HTML, CSS, and vanilla JavaScript, handling dynamic UI updates without a heavy JavaScript framework.",
+        "Deployed and tested the application end-to-end, validating concurrent user sessions, cross-browser compatibility, and message persistence across room sessions.",
+      ],
+      github: "https://github.com/jinit2000/django-real-time-chat-application",
     },
     {
       title: "Face Mask Detection System",
       year: "2020",
-      tech: ["Python", "OpenCV", "Keras"],
-      desc: "Real-time face mask detection system using CNNs and live video processing.",
+      tech: ["Python", "Keras", "TensorFlow", "OpenCV", "Computer Vision", "CNN", "Machine Learning"],
+      desc: "Real-time face mask detection system using convolutional neural networks and live video processing, built to support public health compliance during COVID-19.",
       bullets: [
-        "Achieved ~95% model accuracy.",
-        "Processed thousands of frames in real time.",
-      ],
-      github: "",
-    },
-    {
-      title: "E-Commerce Watch Website",
-      year: "2024",
-      tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-      desc: "Full-stack e-commerce site with add-to-cart, dynamic product pages, and responsive UI.",
-      bullets: [
-        "Built complete frontend + backend stack.",
-        "Designed responsive layout for multiple devices.",
-      ],
-      github: "",
-    },
-    {
-      title: "MyDiscord",
-      year: "2020",
-      tech: ["Django", "HTML", "CSS", "JavaScript"],
-      desc: "Topic-based chat rooms where users can create rooms and discuss in real time.",
-      bullets: [
-        "Implemented authentication and room-based messaging.",
-      ],
-      github: "",
-    },
-    {
-      title: "Journey Planner",
-      year: "2019",
-      tech: ["HTML", "CSS", "JavaScript", "J2EE", "MySQL"],
-      desc: "Travel planning web app with sign-up, login, and basic journey management using JSP/Servlets.",
-      bullets: [
-        "Used JSP for server-side rendering.",
-        "Sparked interest in SEO and web performance.",
+        "Trained a CNN model using Keras and TensorFlow on a preprocessed image dataset with augmentation, resizing, and normalisation, achieving ~95% classification accuracy on the held-out test set.",
+        "Integrated the trained model with OpenCV for real-time webcam video processing, detecting and classifying faces as masked or unmasked at 20+ FPS on standard consumer hardware.",
+        "Packaged the solution as a standalone Python application with a clean real-time video overlay, making results easy to interpret for non-technical users.",
       ],
       github: "",
     },
@@ -506,15 +484,40 @@ const ProjectsSection: React.FC = () => {
                     </span>
                   ))}
                 </div>
+                <div className="flex items-center gap-3">
                 {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
+                    rel="noreferrer"
                     className="text-[11px] font-medium text-primary hover:underline"
                   >
                     View Code
                   </a>
                 )}
+
+                {project.githubv1 && (
+                  <a
+                    href={project.githubv1}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[11px] font-medium text-primary hover:underline"
+                  >
+                    Rule-Based v1
+                  </a>
+                )}
+
+                {project.githubv2 && (
+                  <a
+                    href={project.githubv2}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[11px] font-medium text-primary hover:underline"
+                  >
+                    ML-Based v2
+                  </a>
+                )}
+              </div>
               </div>
             </motion.article>
           ))}
@@ -545,7 +548,7 @@ const SkillsSection: React.FC = () => {
       ],
     },
     {
-      title: "Databases & Data",
+      title: "Databases & Libraries",
       items: [
         "Oracle",
         "MySQL",
@@ -585,7 +588,7 @@ const SkillsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Tech Stack
+          Technical Skills
         </motion.h2>
         <div className="grid md:grid-cols-4 gap-5">
           {columns.map((col, idx) => (
@@ -634,12 +637,12 @@ const EducationSection: React.FC = () => {
             transition={{ duration: 0.4 }}
           >
             <h3 className="font-heading text-base sm:text-lg font-semibold text-slate-900">
-              Master of Engineering in Engineering Practice (Software)
+              Master of Engineering in Engineering Practice (Software) (GPA: 3.47/4.0)
             </h3>
             <p className="text-sm text-slate-600">
-              Carleton University, Canada
+              Carleton University, Ottawa, Canada
             </p>
-            <p className="text-xs text-slate-500 mt-1">Expected Dec 2025</p>
+            <p className="text-xs text-slate-500 mt-1">May 202 - Jan 2026</p>
           </motion.div>
 
           <motion.div
@@ -727,7 +730,7 @@ const ContactSection: React.FC = () => {
         </motion.p>
 
         <div className="grid sm:grid-cols-2 gap-10 text-left mx-auto max-w-3xl">
-          {/* Left column */}
+          
           <div className="space-y-4">
             <p className="text-sm">
               <span className="font-semibold text-slate-900">Email:</span>{" "}
@@ -745,7 +748,7 @@ const ContactSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Right column */}
+          
           <div className="space-y-4">
             <p className="text-sm">
               <span className="font-semibold text-slate-900">LinkedIn:</span>{" "}
