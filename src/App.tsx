@@ -642,7 +642,7 @@ const EducationSection: React.FC = () => {
             <p className="text-sm text-slate-600">
               Carleton University, Ottawa, Canada
             </p>
-            <p className="text-xs text-slate-500 mt-1">May 202 - Jan 2026</p>
+            <p className="text-xs text-slate-500 mt-1">May 2024 - Jan 2026</p>
           </motion.div>
 
           <motion.div
